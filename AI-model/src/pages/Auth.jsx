@@ -47,7 +47,7 @@ const AuthForm = () => {
     try {
       if (isLogin) {
         // Login API call
-        const response = await axios.post(`${API_URL}/login`, {
+        const response = await axios.post(`https://nexusai-backend-ghh1.onrender.com/login`, {
           email: data.email,
           password: data.password,
         });
@@ -66,7 +66,7 @@ const AuthForm = () => {
        
       } else {
         // Register API call
-        const response = await axios.post(`${API_URL}/register`, {
+        const response = await axios.post(`https://nexusai-backend-ghh1.onrender.com/register`, {
           name: data.name,
           email: data.email,
           password: data.password,
