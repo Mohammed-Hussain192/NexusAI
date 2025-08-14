@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 
 
-const API_URL = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_BASE_URL;
 
 
 const AuthForm = () => {
