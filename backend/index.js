@@ -9,9 +9,20 @@ const bcrypt = require('bcrypt')
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://nexusai-client.onrender.com"
+];
+
 app.use(cors({
-    origin: ["http://localhost:5173", "https://nexusai-client.onrender.com"],
-    credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
 
 
