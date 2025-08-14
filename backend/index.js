@@ -10,9 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://nexusai-client.onrender.com"],
     credentials: true
 }));
+
 
 
 app.post("/login", async function (req, res) {
